@@ -90,4 +90,12 @@
             hour: hour,
             details: details
           }
+          console.log('dailyInfo bef', dailyInfo);
+          console.log('dailyInfo after', dailyInfo);
+    
+          dataService.saveCalendarItem(hour, details);
+        });
+      });
   
+    })(window.jQuery);
+    
