@@ -7,44 +7,49 @@
       //date format MMDDYYYY
       var loadFunction = function(date) {
         //'09/12/2020'
-        var calendarData = []; 
-
+        var calendarData = [];  //localStorage.getItem(date);
+        
         for (var h = 0; h <= 17; h++) {
-            calendarData.push(localStorage.getItem(h));        
-            }
-            return calendarData;
-          }
-          var saveFunction = function(hour, hourInfo) {
-            localStorage.setItem(hour, hourInfo);
-          }
-      
-          var dataService = {
-            loadCalendarItem: loadFunction,
-            saveCalendarItem: saveFunction
-          }
-          var currentSimpleDate = moment().format('L');
-          console.log('currentSimpleDate: ', currentSimpleDate);
-         //- Create ViewModel
-          var calendarViewModel = {
-            currentDate: moment().format('MMMM Do YYYY, h:mm A'),
-            calendarData: dataService.loadCalendarItem(currentSimpleDate)
-          }
-          onsole.log('calendarViewModel: ', calendarViewModel);
+        calendarData.push(localStorage.getItem(h));        
+        }
+        return calendarData;
+      }
   
-          function htmlTemplate(hour, details, hourDecorator) {
-            var d = new Date().setHours(hour);
-            var buttonId = `hrBtn${hour}`;
-            var textId = `text${hour}`
-            var hourlyTemplate = `
-            <div class="row hour-block ${hourDecorator}">
-              <div class="col-md-1 hour d-flex align-items-center">${moment(d).format('h A')}
-              </div>
-                <textarea id="${textId}" class="col-md-10 description">${details}</textarea>
-                    <button id="${buttonId}" type="button" class="saveBtn col-1 fa fa-save fa-2x"></button>
-            </div>`;
-            return hourlyTemplate;
-          }
-          var dailyInfo = [];
+      var saveFunction = function(hour, hourInfo) {
+        localStorage.setItem(hour, hourInfo);
+      }
+  
+      var dataService = {
+        loadCalendarItem: loadFunction,
+        saveCalendarItem: saveFunction
+      }
+  
+      //- Load current date time
+      var currentSimpleDate = moment().format('L');
+      console.log('currentSimpleDate: ', currentSimpleDate);
+     //- Create ViewModel
+      var calendarViewModel = {
+        currentDate: moment().format('MMMM Do YYYY, h:mm A'),
+        calendarData: dataService.loadCalendarItem(currentSimpleDate)
+      }
+  
+      console.log('calendarViewModel: ', calendarViewModel);
+  
+      function htmlTemplate(hour, details, hourDecorator) {
+        var d = new Date().setHours(hour);
+        var buttonId = `hrBtn${hour}`;
+        var textId = `text${hour}`
+        var hourlyTemplate = `
+        <div class="row hour-block ${hourDecorator}">
+          <div class="col-md-1 hour d-flex align-items-center">${moment(d).format('h A')}
+          </div>
+            <textarea id="${textId}" class="col-md-10 description">${details}</textarea>
+                <button id="${buttonId}" type="button" class="saveBtn col-1 fa fa-save fa-2x"></button>
+        </div>`;
+        return hourlyTemplate;
+      }
+  
+       var dailyInfo = [];
       function printCalendar() {
         var hourDecorator;
         //- Color code hour depending on past, present, future
@@ -62,6 +67,7 @@
           } else if (moment().hour() < h) {
             hourDecorator = 'future';
           }
+  
           var html = htmlTemplate(h, (hourData == null ? "" : hourData), hourDecorator);
           $(".container").append(html);
         }
@@ -79,23 +85,23 @@
         //save calendar time slot
         var hour = this.id.replace('hrBtn', '');      
         hour= parseInt(hour, 10);
-
+  
         var detailsId = `#text${hour}`;
         console.log('dets: ', detailsId);
         
         var details = $(`#text${hour}`).val(); //text1, text2
         console.log('dets: ', details);
-
+        
         var hourlyInfo = {
-            hour: hour,
-            details: details
-          }
-          console.log('dailyInfo bef', dailyInfo);
-          console.log('dailyInfo after', dailyInfo);
-    
-          dataService.saveCalendarItem(hour, details);
-        });
-      });
+          hour: hour,
+          details: details
+        }
+
+        console.log('dailyInfo bef', dailyInfo);
+        console.log('dailyInfo after', dailyInfo);
   
-    })(window.jQuery);
-    
+        dataService.saveCalendarItem(hour, details);
+      });
+    });
+
+  })(window.jQuery);

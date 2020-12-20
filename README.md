@@ -38,6 +38,9 @@ This application shows the current day and is showing time slots from 9AM-5PM. U
 
 ## Screenshots
 
+![Work Day Scheduler](./assets/work-day-scheduler.gif)
+
+<img src="https://user-images.githubusercontent.com/70309736/102712036-b7660e80-4283-11eb-8bd6-d875de463119.png">
 
 
 ## Contributors
