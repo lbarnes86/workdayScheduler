@@ -19,11 +19,12 @@
 
 ## Description
 
->
+> The Work Day Scheduler application makes is easier to plan a busy day.
 
 ## Usage
 
 ```
+This application shows the current day and is showing time slots from 9AM-5PM. User can type in memo and click the save button.
 
 ```
 
