@@ -22,4 +22,11 @@
             loadCalendarItem: loadFunction,
             saveCalendarItem: saveFunction
           }
-          
+          var currentSimpleDate = moment().format('L');
+          console.log('currentSimpleDate: ', currentSimpleDate);
+         //- Create ViewModel
+          var calendarViewModel = {
+            currentDate: moment().format('MMMM Do YYYY, h:mm A'),
+            calendarData: dataService.loadCalendarItem(currentSimpleDate)
+          }
+      
