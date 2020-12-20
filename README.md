@@ -6,7 +6,7 @@
 
 - Project Repository: [Repository](https://github.com/lbarnes86/WorkDayScheduler)
 
-- Project Deployment: [Deployment]()
+- Project Deployment: [Deployment](https://lbarnes86.github.io/WorkDayScheduler/.)
 
 ## Table of Contents
 
