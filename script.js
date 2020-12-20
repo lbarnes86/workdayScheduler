@@ -44,3 +44,22 @@
             </div>`;
             return hourlyTemplate;
           }
+          var dailyInfo = [];
+      function printCalendar() {
+        var hourDecorator;
+        //- Color code hour depending on past, present, future
+
+        for (var h = 9; h <= 17; h++) {
+          //if (expression) ? true : false
+          var hourData = (calendarViewModel.calendarData === null) ? null : calendarViewModel.calendarData[h];
+          //console.log(moment().hour());
+  
+          if (moment().hour() > h) {
+            //create past css class 
+            hourDecorator = 'past';
+          } else if (moment().hour() === h) {
+            hourDecorator = 'present';
+          } else if (moment().hour() < h) {
+            hourDecorator = 'future';
+          }
+  
