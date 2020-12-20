@@ -62,4 +62,32 @@
           } else if (moment().hour() < h) {
             hourDecorator = 'future';
           }
+          var html = htmlTemplate(h, (hourData == null ? "" : hourData), hourDecorator);
+          $(".container").append(html);
+        }
+      }
+    //- Print hourly calendar
+      printCalendar();
+  
+      function handleHourSaveEvent() {
+      }
+  
+      $("#currentDay").html(calendarViewModel.currentDate);
+  
+      $(".saveBtn").click(function(index, element) {
+        console.log('I was clicked!');
+        //save calendar time slot
+        var hour = this.id.replace('hrBtn', '');      
+        hour= parseInt(hour, 10);
+
+        var detailsId = `#text${hour}`;
+        console.log('dets: ', detailsId);
+        
+        var details = $(`#text${hour}`).val(); //text1, text2
+        console.log('dets: ', details);
+
+        var hourlyInfo = {
+            hour: hour,
+            details: details
+          }
   
