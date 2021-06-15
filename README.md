@@ -4,9 +4,9 @@
 
 </div>
 
-- Project Repository: [Repository](https://github.com/lbarnes86/WorkDayScheduler)
+- [Repository](https://github.com/lbarnes86/WorkDayScheduler)
 
-- Project Deployment: [Deployment](https://lbarnes86.github.io/WorkDayScheduler/.)
+- [Deployment](https://lbarnes86.github.io/WorkDayScheduler/.)
 
 ## Table of Contents
 
@@ -51,4 +51,4 @@ This application shows the current day and is showing time slots from 9AM-5PM. U
 
 none
 
-Copyright© 2020 [Lloyd Barnes](https://lbarnes86.github.io/updated_Portfolio/)
+Copyright© 2021 [Lloyd Barnes](https://lbarnes86.github.io/updated_Portfolio/)
